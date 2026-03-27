@@ -4,6 +4,7 @@ import { useState, useId, useEffect, useRef } from "react";
 import { Mail } from "lucide-react";
 
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
@@ -100,6 +101,7 @@ export function Contact() {
 
         <div className="grid gap-12 md:grid-cols-2">
           {/* Form */}
+          <ScrollReveal delay={0}>
           <form
             onSubmit={handleSubmit}
             noValidate
@@ -265,8 +267,10 @@ export function Contact() {
               )}
             </div>
           </form>
+          </ScrollReveal>
 
           {/* Right column — connect info */}
+          <ScrollReveal delay={0.15}>
           <div className="flex flex-col justify-center gap-8">
             <div>
               <h3 className="mb-2 text-xl font-semibold text-foreground">
@@ -289,12 +293,12 @@ export function Contact() {
                       target={href.startsWith("mailto:") ? undefined : "_blank"}
                       rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                       className={cn(
-                        "inline-flex items-center gap-3 text-sm text-muted",
+                        "group inline-flex items-center gap-3 text-sm text-muted",
                         "transition-colors duration-200 hover:text-lavender-400",
                         "focus-visible:outline-2 focus-visible:outline-lavender-400 focus-visible:outline-offset-2 rounded-sm"
                       )}
                     >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card transition-colors duration-200 group-hover:border-lavender-400/50">
                         <IconComponent className="h-4 w-4" />
                       </span>
                       <span>{label}</span>
@@ -304,6 +308,7 @@ export function Contact() {
               })}
             </ul>
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

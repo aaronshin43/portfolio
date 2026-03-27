@@ -11,29 +11,29 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <>
-      <main>
-        <section id="hero">
+      <main id="main-content">
+        <section id="hero" className="scroll-mt-20">
           <Hero />
         </section>
-        <section id="about">
+        <section id="about" className="scroll-mt-20">
           <About />
         </section>
-        <section id="research">
+        <section id="research" className="scroll-mt-20">
           <Research />
         </section>
-        <section id="projects">
+        <section id="projects" className="scroll-mt-20">
           <Projects />
         </section>
-        <section id="experience">
+        <section id="experience" className="scroll-mt-20">
           <Experience />
         </section>
-        <section id="skills">
+        <section id="skills" className="scroll-mt-20">
           <Skills />
         </section>
-        <section id="honors">
+        <section id="honors" className="scroll-mt-20">
           <Honors />
         </section>
-        <section id="contact">
+        <section id="contact" className="scroll-mt-20">
           <Contact />
         </section>
       </main>

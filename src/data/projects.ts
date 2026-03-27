@@ -10,8 +10,8 @@ export const projects: Project[] = [
     award: "Best Use of Vultr",
     hackathon: "DevFest 2026",
     date: "Feb 2026",
-    githubUrl: "https://github.com/aaronshin43/forge-the-world",
-    liveUrl: "https://forge-the-world.vercel.app",
+    githubUrl: "https://github.com/aaronshin43/forgetheworld",
+    imageUrl: "/images/forge-the-world.png",
   },
   {
     id: "procrasti-hator",
@@ -22,7 +22,8 @@ export const projects: Project[] = [
     award: "Best Use of ElevenLabs",
     hackathon: "NexHacks 2026",
     date: "Jan 2026",
-    githubUrl: "https://github.com/aaronshin43/procrasti-hator",
+    githubUrl: "https://github.com/aaronshin43/ProcrastiHater",
+    imageUrl: "/images/procrastihater.png",
   },
   {
     id: "the-last-vigil",
@@ -33,8 +34,8 @@ export const projects: Project[] = [
     award: "Best Gamification Hack & Best Use of Vultr",
     hackathon: "Technica 2025",
     date: "Nov 2025",
-    githubUrl: "https://github.com/aaronshin43/the-last-vigil",
-    liveUrl: "https://the-last-vigil.vercel.app",
+    githubUrl: "https://github.com/aaronshin43/lastvigil-front",
+    imageUrl: "/images/lastvigil.png",
   },
   {
     id: "charaides",
@@ -45,7 +46,7 @@ export const projects: Project[] = [
     award: "Most Creative Hack",
     hackathon: "PennApps XXVI",
     date: "Sep 2025",
-    githubUrl: "https://github.com/aaronshin43/charaides",
-    liveUrl: "https://charaides.vercel.app",
+    githubUrl: "https://github.com/PennApps2025/FrontAiCharades",
+    imageUrl: "/images/charaides.png",
   },
 ];

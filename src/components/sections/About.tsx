@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -44,7 +46,8 @@ export function About() {
 
               <div className="pt-2">
                 <a
-                  href="/resume.pdf"
+                  href="/Resume_Jeongcheol_Shin.pdf"
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg border border-lavender-500 px-5 py-2.5 text-sm font-semibold text-lavender-400 transition-all duration-200 hover:bg-lavender-500/10 focus-visible:outline-2 focus-visible:outline-lavender-400 focus-visible:outline-offset-2"
@@ -69,38 +72,27 @@ export function About() {
             </div>
           </ScrollReveal>
 
-          {/* Right: profile photo placeholder */}
+          {/* Right: profile photo */}
           <ScrollReveal delay={0.2}>
             <div className="mt-10 flex justify-center md:mt-0">
-              <div
-                className="relative aspect-square w-full max-w-xs overflow-hidden rounded-2xl"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(124,90,224,0.2) 0%, rgba(155,122,255,0.05) 100%)",
-                  border: "1px solid rgba(124,90,224,0.3)",
-                }}
-                role="img"
-                aria-label="Profile photo placeholder — initials AS"
-              >
+              <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-2xl border border-lavender-500/30">
                 {/* Decorative corner accents */}
                 <span
-                  className="absolute left-3 top-3 h-6 w-6 rounded-tl-lg border-l-2 border-t-2 border-lavender-400"
+                  className="absolute left-3 top-3 z-10 h-6 w-6 rounded-tl-lg border-l-2 border-t-2 border-lavender-400"
                   aria-hidden="true"
                 />
                 <span
-                  className="absolute right-3 bottom-3 h-6 w-6 rounded-br-lg border-r-2 border-b-2 border-lavender-400"
+                  className="absolute right-3 bottom-3 z-10 h-6 w-6 rounded-br-lg border-r-2 border-b-2 border-lavender-400"
                   aria-hidden="true"
                 />
-
-                {/* Initials */}
-                <div className="flex h-full items-center justify-center">
-                  <span
-                    className="select-none bg-linear-to-br from-lavender-300 to-lavender-500 bg-clip-text text-6xl font-bold tracking-tight text-transparent"
-                    aria-hidden="true"
-                  >
-                    AS
-                  </span>
-                </div>
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Aaron Shin"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 320px, 80vw"
+                  priority
+                />
               </div>
             </div>
           </ScrollReveal>

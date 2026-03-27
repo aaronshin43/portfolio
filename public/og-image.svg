@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0f"/>
+  <!-- Lavender accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="#9b7aff"/>
+  <!-- Name -->
+  <text x="80" y="260" font-family="system-ui, sans-serif" font-size="72" font-weight="700" fill="#e8e8ed">Aaron Shin</text>
+  <!-- Tagline -->
+  <text x="80" y="330" font-family="system-ui, sans-serif" font-size="28" fill="#8888a0">CS &amp; Math @ Dickinson College · Undergraduate Researcher</text>
+  <!-- URL hint -->
+  <text x="80" y="560" font-family="system-ui, sans-serif" font-size="22" fill="#6b6b80">aaronshin.dev</text>
+</svg>

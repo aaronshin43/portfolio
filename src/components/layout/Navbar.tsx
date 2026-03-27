@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -19,6 +20,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const activeSection = useActiveSection();
 
   const closeMenu = useCallback(() => {
     setIsOpen(false);
@@ -115,20 +117,27 @@ export function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-6 md:flex" role="list">
-          {NAV_LINKS.map(({ label, href }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className={cn(
-                  "text-sm font-medium text-muted-foreground",
-                  "transition-colors duration-200 hover:text-lavender-400",
-                  "focus-visible:outline-2 focus-visible:outline-lavender-400 focus-visible:outline-offset-2 rounded-sm"
-                )}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map(({ label, href }) => {
+            const sectionId = href.slice(1) as string;
+            const isActive = activeSection === sectionId;
+            return (
+              <li key={href}>
+                <a
+                  href={href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "text-sm transition-colors duration-200",
+                    "focus-visible:outline-2 focus-visible:outline-lavender-400 focus-visible:outline-offset-2 rounded-sm",
+                    isActive
+                      ? "font-medium text-lavender-400"
+                      : "font-medium text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Hamburger button (mobile only) */}
@@ -170,22 +179,30 @@ export function Navbar() {
           aria-label="Navigation menu"
         >
           <ul className="flex flex-col px-4 py-4 sm:px-6" role="list">
-            {NAV_LINKS.map(({ label, href }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  onClick={handleNavClick}
-                  className={cn(
-                    "block py-3 text-base font-medium text-muted-foreground",
-                    "border-b border-border/50 last:border-0",
-                    "transition-colors duration-200 hover:text-lavender-400",
-                    "focus-visible:outline-2 focus-visible:outline-lavender-400 focus-visible:outline-offset-2 rounded-sm"
-                  )}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map(({ label, href }) => {
+              const sectionId = href.slice(1) as string;
+              const isActive = activeSection === sectionId;
+              return (
+                <li key={href}>
+                  <a
+                    href={href}
+                    onClick={handleNavClick}
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(
+                      "block py-3 text-base font-medium",
+                      "border-b border-border/50 last:border-0",
+                      "transition-colors duration-200",
+                      "focus-visible:outline-2 focus-visible:outline-lavender-400 focus-visible:outline-offset-2 rounded-sm",
+                      isActive
+                        ? "text-lavender-400"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
